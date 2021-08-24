@@ -251,7 +251,8 @@ else
 	echo ""
 	### Install ###
         mkdir -p /opt/uptime360
-        wget -O /opt/uptime360/agent.sh http://hop.ut360.net/assets/agent.sh
+        #wget -O /opt/uptime360/agent.sh http://hop.ut360.net/assets/agent.sh
+	wget -O /opt/uptime360/agent.sh https://raw.githubusercontent.com/Uptime360/Agent/master/agent.sh
         echo "$1" > /opt/uptime360/serverkey
         echo "http://hop.ut360.net/agent.php" > /opt/uptime360/gateway
 fi

@@ -220,13 +220,13 @@ if [ -f /opt/uptime360/agent.sh ]; then
 fi
 
 # Check if the system can establish SSL connection
-if curl --output /dev/null --silent --head --fail "https://hop.ut360.net"; then
+if curl --output /dev/null --silent --head --fail "https://hop.uptime360.net"; then
 	### Install ###
 	mkdir -p /opt/uptime360 >> $LOG 2>&1
-	wget --no-check-certificate -O /opt/uptime360/agent.sh $2/assets/agent.sh >> $LOG 2>&1
+	wget --no-check-certificate -O /opt/uptime360/agent.sh https://raw.githubusercontent.com/Uptime360/Agent/master/agent.sh >> $LOG 2>&1
 
 	echo "$1" > /opt/uptime360/serverkey
-	echo "https://hop.ut360.net/agent.php" > /opt/uptime360/gateway
+	echo "https://hop.uptime360.net" > /opt/uptime360/gateway
         "SSL Connection Established..." >> $LOG 2>$1
 else
 	echo " "
@@ -251,10 +251,10 @@ else
 	echo ""
 	### Install ###
         mkdir -p /opt/uptime360
-        #wget --no-check-certificate -O /opt/uptime360/agent.sh http://hop.ut360.net/assets/agent.sh
+        #wget --no-check-certificate -O /opt/uptime360/agent.sh http://hop.uptime360.net/assets/agent.sh
 	wget --no-check-certificate -O /opt/uptime360/agent.sh https://raw.githubusercontent.com/Uptime360/Agent/master/agent.sh
         echo "$1" > /opt/uptime360/serverkey
-        echo "http://hop.ut360.net/agent.php" > /opt/uptime360/gateway
+        echo "http://hop.uptime360.net" > /opt/uptime360/gateway
 fi
 
 # Did it download ?

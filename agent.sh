@@ -62,7 +62,7 @@ function pingLatency() {
 
 
 # agent version
-agent_version="1.0"
+agent_version="1.1"
 POST="$POST{agent_version}$agent_version{/agent_version}"
 
 # serverkey
@@ -210,4 +210,4 @@ POST="$POST{processes}$processes{/processes}"
 # -d data
 
 
-echo "data=$POST" | curl -m 50 -k -s -d @- "$GATEWAY"
+echo "data=$POST" | curl --header "Authorization: $SERVERKEY" -m 50 -k -s -d @- "$GATEWAY"

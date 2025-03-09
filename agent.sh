@@ -210,4 +210,4 @@ POST="$POST{processes}$processes{/processes}"
 # -d data
 
 
-echo "data=$POST" | curl --header "Authorization: $SERVERKEY" -m 50 -k -s -d @- "$GATEWAY"
+echo "data=$POST" | curl --header "Authorization: $SERVERKEY" -m 50 -k -s --max-redirs 4 -L -d @- "$GATEWAY"
